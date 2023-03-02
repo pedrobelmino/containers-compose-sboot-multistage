@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  mongodb-dev:
+    image: mongo:4.2.6
+    container_name: hello-docker-mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongodb_volume_dev:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - app
+
+volumes:
+  mongodb_volume_dev:
+
+networks:
+  app:
